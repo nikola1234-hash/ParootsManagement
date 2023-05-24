@@ -19,7 +19,10 @@ namespace ParootsManagement
         public Form1()
         {
             InitializeComponent();
+            databaseService = new DatabaseService();
+            database = new Database();
             LoadDatabase();
+
         }
 
 

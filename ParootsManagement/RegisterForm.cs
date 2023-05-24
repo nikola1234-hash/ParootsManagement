@@ -50,9 +50,9 @@ namespace ParootsManagement
                 // Create a new dictionary to hold the user details
                 var newUser = new Dictionary<string, object>
                 {
-                    { "UserId", userId },
-                    { "Username", username },
-                    { "Password", password }
+                    { "userId", userId },
+                    { "username", username },
+                    { "password", password }
                 };
 
                 excelData.Add(newUser); // Add the new user details to the existing data
@@ -88,7 +88,7 @@ namespace ParootsManagement
             // var excelData = ReadExcelData();
             //    // Check if the username already exists
             // Replace the below line with the actual validation logic based on your Excel file structure
-            var usernameExists = excelData.Any(row => row["Username"] == username);
+            var usernameExists = excelData.Any(row => row["username"].ToString() == username);
 
             if (usernameExists)
             {

@@ -1,4 +1,5 @@
 ﻿using OfficeOpenXml;
+using ParootsManagement.Const;
 using ParootsManagement.Services;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,7 @@ namespace ParootsManagement
             {
                 // Successful login
                 MessageBox.Show("Login successful!");
+                CreateUserPersistance(username, password);
                 Form1 form = new Form1();
                 form.Show();
                 this.Hide();
@@ -49,7 +51,18 @@ namespace ParootsManagement
                 MessageBox.Show("Invalid username or password!");
             }
         }
+        private void CreateUserPersistance(string username, string password)
+        {
+            var excelData = ExcelService.ReadExcelData();
+            var user = excelData.Where(s => s["username"].ToString() == username && s["password"].ToString() == password).FirstOrDefault();
+            if (user != null)
+            {
+                Guid.TryParse(user["id"].ToString(), out Guid id);
+                UserStore.Id = id;
+                UserStore.Username = user["username"].ToString();
+            }
 
+        }
         private bool ValidateLogin(string username, string password)
         {
             var excelData = ExcelService.ReadExcelData();
