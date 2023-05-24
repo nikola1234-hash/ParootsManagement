@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParootsManagement", "ParootsManagement\ParootsManagement.csproj", "{88E62A9B-0D28-4776-A654-D13B50638C0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88E62A9B-0D28-4776-A654-D13B50638C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88E62A9B-0D28-4776-A654-D13B50638C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88E62A9B-0D28-4776-A654-D13B50638C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88E62A9B-0D28-4776-A654-D13B50638C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD252F26-6700-4984-BA2A-D674E8BD59F3}
+	EndGlobalSection
+EndGlobal
