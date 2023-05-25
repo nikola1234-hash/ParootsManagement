@@ -39,5 +39,11 @@ namespace ParootsManagement
         {
             databaseService.WriteData(database);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddBirdForm birdForm = new AddBirdForm(database);
+            birdForm.ShowDialog();
+        }
     }
 }
