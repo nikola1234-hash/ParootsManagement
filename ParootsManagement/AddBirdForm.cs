@@ -28,8 +28,14 @@ namespace ParootsManagement
         {
             InitializeComponent();
             database = db;
+            if (db.Cages.Count == 0)
+            {
+                MessageBox.Show("You must add a cage first");
+                this.Close();
+            }
             databaseService = new DatabaseService();
             PopulateComboBoxes();
+            childButton.Visible = false;
         }
         public AddBirdForm(Bird bird, Database db)
         {
@@ -39,8 +45,25 @@ namespace ParootsManagement
             databaseService = new DatabaseService();
             PopulateComboBoxes();
             InitializeFields();
+            childButton.Visible = true;
+            childButton.Click += ChildButton_Click;
 
         }
+
+        private void ChildButton_Click(object sender, EventArgs e)
+        {
+            AddChildForm childForm = new AddChildForm(database, bird);
+            var result = childForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                SaveDatabase();
+            }
+            else
+            {
+                return;
+            }
+        }
+
         private void InitializeFields()
         {
             if (bird is null)
@@ -57,6 +80,10 @@ namespace ParootsManagement
             cageNumberTextBox.Text = bird.CageId;
             fatherId.Text = bird.FatherIdentificationNumber.ToString();
             motherId.Text = bird.MotherIdentificationNumber.ToString();
+            bodyCombo.SelectedItem = bird.BodyColor.ToString();
+            headCombo.SelectedItem = bird.HeadColor.ToString();
+            breastCombo.SelectedItem = bird.BreastColor.ToString();
+            cageNumberTextBox.Text = bird.CageId;
             button1.Text = "Update";
             button1.Click -= btnAddBird_Click;
             button1.Click += update_Click;
@@ -110,6 +137,9 @@ namespace ParootsManagement
                 birdToUpdate.CageId = cageNumber;
                 birdToUpdate.FatherIdentificationNumber = fatherIdNumber;
                 birdToUpdate.MotherIdentificationNumber = motherIdNumber;
+                birdToUpdate.HeadColor = (HeadColor)Enum.Parse(typeof(HeadColor), headCombo.Text);
+                birdToUpdate.BodyColor = (BodyColor)Enum.Parse(typeof(BodyColor), bodyCombo.Text);
+                birdToUpdate.BreastColor = (BreastColor)Enum.Parse(typeof(BreastColor), breastCombo.Text);
                 // Add the new bird to the database
                 database.Birds[index] = birdToUpdate;
                 SaveDatabase();
@@ -132,6 +162,9 @@ namespace ParootsManagement
             // Populate the specie ComboBox
             specieComboBox.Items.AddRange(Enum.GetNames(typeof(Specie)));
             genderComboBox.Items.AddRange(Enum.GetNames(typeof(Gender)));
+            headCombo.Items.AddRange(Enum.GetNames(typeof(HeadColor)));
+            bodyCombo.Items.AddRange(Enum.GetNames(typeof(BodyColor)));
+            breastCombo.Items.AddRange(Enum.GetNames(typeof(BreastColor)));
         }
 
         private void SpecieComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -216,7 +249,7 @@ namespace ParootsManagement
 
             Bird newBird = new Bird
             {
-                Id = GetNextBirdId(),
+
                 Specie = species,
                 SubSpecie = subSpecies,
                 BirthDate = birthDate,
@@ -224,8 +257,12 @@ namespace ParootsManagement
                 CageId = cageNumber,
                 FatherIdentificationNumber = fatherIdNumber,
                 MotherIdentificationNumber = motherIdNumber,
+                HeadColor = (HeadColor)Enum.Parse(typeof(HeadColor), headCombo.Text),
+                BodyColor = (BodyColor)Enum.Parse(typeof(BodyColor), bodyCombo.Text),
+                BreastColor = (BreastColor)Enum.Parse(typeof(BreastColor), breastCombo.Text),
                 UserId = UserStore.Id
             };
+            newBird.Id = newBird.GenerateBirdId(database);
 
             var cage = database.Cages.Where(s => s.Id == cageNumber).FirstOrDefault();
             var cageIndex = database.Cages.IndexOf(cage);
@@ -338,7 +375,55 @@ namespace ParootsManagement
 
         private void childButton_Click(object sender, EventArgs e)
         {
+            AddChildForm childForm = new AddChildForm(database, bird);
+            var result = childForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
 
+                SaveDatabase();
+
+            }
+            else
+            {
+                MessageBox.Show("Child not added.");
+            }
+
+        }
+
+        private void fatherId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (char.IsControl(e.KeyChar))
+            {
+                // Allow control characters (e.g., Backspace) to be entered
+                return;
+            }
+
+            // Check if the entered key is a digit
+            if (!char.IsDigit(e.KeyChar))
+            {
+                // Prevent non-numeric characters from being entered
+                e.Handled = true;
+            }
+
+        }
+
+        private void motherId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            {
+                if (char.IsControl(e.KeyChar))
+                {
+                    // Allow control characters (e.g., Backspace) to be entered
+                    return;
+                }
+
+                // Check if the entered key is a digit
+                if (!char.IsDigit(e.KeyChar))
+                {
+                    // Prevent non-numeric characters from being entered
+                    e.Handled = true;
+                }
+            }
         }
     }
 }

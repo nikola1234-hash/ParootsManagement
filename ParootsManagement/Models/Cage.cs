@@ -15,7 +15,6 @@ namespace ParootsManagement.Models
 
         public Cage()
         {
-            Id = Guid.NewGuid().ToString();
             BirdIds = new List<int>();
         }
     }

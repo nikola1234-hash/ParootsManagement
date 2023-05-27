@@ -1,6 +1,6 @@
 ﻿namespace ParootsManagement
 {
-    partial class AddBirdForm
+    partial class AddChildForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.bodyCombo = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.breastCombo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.headCombo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -45,24 +52,83 @@
             this.subSpecieComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.specieComboBox = new System.Windows.Forms.ComboBox();
+            this.motherCombobox = new System.Windows.Forms.ComboBox();
+            this.fatherComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.childButton = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.headCombo = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.breastCombo = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.bodyCombo = new System.Windows.Forms.ComboBox();
+            this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label6);
+            this.groupBox7.Controls.Add(this.bodyCombo);
+            this.groupBox7.Controls.Add(this.label5);
+            this.groupBox7.Controls.Add(this.breastCombo);
+            this.groupBox7.Controls.Add(this.label4);
+            this.groupBox7.Controls.Add(this.headCombo);
+            this.groupBox7.Location = new System.Drawing.Point(12, 253);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(421, 140);
+            this.groupBox7.TabIndex = 5;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Bird Colors";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(152, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Body";
+            // 
+            // bodyCombo
+            // 
+            this.bodyCombo.FormattingEnabled = true;
+            this.bodyCombo.Location = new System.Drawing.Point(152, 38);
+            this.bodyCombo.Name = "bodyCombo";
+            this.bodyCombo.Size = new System.Drawing.Size(121, 21);
+            this.bodyCombo.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Breast";
+            // 
+            // breastCombo
+            // 
+            this.breastCombo.FormattingEnabled = true;
+            this.breastCombo.Location = new System.Drawing.Point(13, 86);
+            this.breastCombo.Name = "breastCombo";
+            this.breastCombo.Size = new System.Drawing.Size(121, 21);
+            this.breastCombo.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Head";
+            // 
+            // headCombo
+            // 
+            this.headCombo.FormattingEnabled = true;
+            this.headCombo.Location = new System.Drawing.Point(13, 38);
+            this.headCombo.Name = "headCombo";
+            this.headCombo.Size = new System.Drawing.Size(121, 21);
+            this.headCombo.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -72,10 +138,10 @@
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(765, 234);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
             // 
@@ -87,11 +153,11 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.childButton);
+            this.groupBox6.Controls.Add(this.fatherComboBox);
+            this.groupBox6.Controls.Add(this.motherCombobox);
             this.groupBox6.Controls.Add(this.motherId);
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Controls.Add(this.fatherId);
@@ -111,7 +177,6 @@
             this.motherId.Name = "motherId";
             this.motherId.Size = new System.Drawing.Size(174, 20);
             this.motherId.TabIndex = 5;
-            this.motherId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.motherId_KeyPress);
             // 
             // label3
             // 
@@ -128,7 +193,6 @@
             this.fatherId.Name = "fatherId";
             this.fatherId.Size = new System.Drawing.Size(174, 20);
             this.fatherId.TabIndex = 3;
-            this.fatherId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fatherId_KeyPress);
             // 
             // label2
             // 
@@ -143,6 +207,7 @@
             // 
             this.cageNumberTextBox.Location = new System.Drawing.Point(6, 38);
             this.cageNumberTextBox.Name = "cageNumberTextBox";
+            this.cageNumberTextBox.ReadOnly = true;
             this.cageNumberTextBox.Size = new System.Drawing.Size(174, 20);
             this.cageNumberTextBox.TabIndex = 1;
             // 
@@ -172,6 +237,7 @@
             this.birthDatePicker.Name = "birthDatePicker";
             this.birthDatePicker.Size = new System.Drawing.Size(210, 20);
             this.birthDatePicker.TabIndex = 0;
+            this.birthDatePicker.ValueChanged += new System.EventHandler(this.birthDatePicker_ValueChanged);
             // 
             // groupBox4
             // 
@@ -226,116 +292,45 @@
             this.specieComboBox.Name = "specieComboBox";
             this.specieComboBox.Size = new System.Drawing.Size(121, 21);
             this.specieComboBox.TabIndex = 0;
-            this.specieComboBox.SelectedIndexChanged += new System.EventHandler(this.SpecieComboBox_SelectedIndexChanged);
+            // 
+            // motherCombobox
+            // 
+            this.motherCombobox.FormattingEnabled = true;
+            this.motherCombobox.Location = new System.Drawing.Point(6, 125);
+            this.motherCombobox.Name = "motherCombobox";
+            this.motherCombobox.Size = new System.Drawing.Size(174, 21);
+            this.motherCombobox.TabIndex = 6;
+            // 
+            // fatherComboBox
+            // 
+            this.fatherComboBox.FormattingEnabled = true;
+            this.fatherComboBox.Location = new System.Drawing.Point(6, 81);
+            this.fatherComboBox.Name = "fatherComboBox";
+            this.fatherComboBox.Size = new System.Drawing.Size(174, 21);
+            this.fatherComboBox.TabIndex = 7;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(713, 415);
+            this.button1.Location = new System.Drawing.Point(710, 415);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 6;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnAddBird_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 415);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Close";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // childButton
-            // 
-            this.childButton.Location = new System.Drawing.Point(259, 179);
-            this.childButton.Name = "childButton";
-            this.childButton.Size = new System.Drawing.Size(75, 23);
-            this.childButton.TabIndex = 6;
-            this.childButton.Text = "Add Child";
-            this.childButton.UseVisualStyleBackColor = true;
-            this.childButton.Click += new System.EventHandler(this.childButton_Click);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label6);
-            this.groupBox7.Controls.Add(this.bodyCombo);
-            this.groupBox7.Controls.Add(this.label5);
-            this.groupBox7.Controls.Add(this.breastCombo);
-            this.groupBox7.Controls.Add(this.label4);
-            this.groupBox7.Controls.Add(this.headCombo);
-            this.groupBox7.Location = new System.Drawing.Point(13, 254);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(421, 140);
-            this.groupBox7.TabIndex = 3;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Bird Colors";
-            // 
-            // headCombo
-            // 
-            this.headCombo.FormattingEnabled = true;
-            this.headCombo.Location = new System.Drawing.Point(13, 38);
-            this.headCombo.Name = "headCombo";
-            this.headCombo.Size = new System.Drawing.Size(121, 21);
-            this.headCombo.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Head";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 67);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Breast";
-            // 
-            // breastCombo
-            // 
-            this.breastCombo.FormattingEnabled = true;
-            this.breastCombo.Location = new System.Drawing.Point(13, 86);
-            this.breastCombo.Name = "breastCombo";
-            this.breastCombo.Size = new System.Drawing.Size(121, 21);
-            this.breastCombo.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(152, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Body";
-            // 
-            // bodyCombo
-            // 
-            this.bodyCombo.FormattingEnabled = true;
-            this.bodyCombo.Location = new System.Drawing.Point(152, 38);
-            this.bodyCombo.Name = "bodyCombo";
-            this.bodyCombo.Size = new System.Drawing.Size(121, 21);
-            this.bodyCombo.TabIndex = 4;
-            // 
-            // AddBirdForm
+            // AddChildForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(797, 450);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AddBirdForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddBirdForm";
+            this.Name = "AddChildForm";
+            this.Text = "AddChildForm";
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -343,34 +338,12 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox subSpecieComboBox;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox specieComboBox;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ComboBox genderComboBox;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DateTimePicker birthDatePicker;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox motherId;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox fatherId;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox cageNumberTextBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button childButton;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox bodyCombo;
@@ -378,5 +351,25 @@
         private System.Windows.Forms.ComboBox breastCombo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox headCombo;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.TextBox motherId;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox fatherId;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox cageNumberTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DateTimePicker birthDatePicker;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ComboBox genderComboBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox subSpecieComboBox;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox specieComboBox;
+        private System.Windows.Forms.ComboBox fatherComboBox;
+        private System.Windows.Forms.ComboBox motherCombobox;
+        private System.Windows.Forms.Button button1;
     }
 }

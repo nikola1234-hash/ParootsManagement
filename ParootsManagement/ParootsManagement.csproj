@@ -80,6 +80,12 @@
     <Compile Include="AddBirdForm.Designer.cs">
       <DependentUpon>AddBirdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddChildForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddChildForm.Designer.cs">
+      <DependentUpon>AddChildForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,7 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Bird.cs" />
+    <Compile Include="Models\BirdPhisicalFeatures.cs" />
     <Compile Include="Models\Cage.cs" />
     <Compile Include="Models\Database.cs" />
     <Compile Include="Models\Material.cs" />
@@ -120,6 +127,9 @@
     <Compile Include="Services\ExcelService.cs" />
     <EmbeddedResource Include="AddBirdForm.resx">
       <DependentUpon>AddBirdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddChildForm.resx">
+      <DependentUpon>AddChildForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CageForm.resx">
       <DependentUpon>CageForm.cs</DependentUpon>

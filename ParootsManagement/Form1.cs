@@ -190,6 +190,13 @@ namespace ParootsManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (database.Cages.Count == 0)
+            {
+
+                MessageBox.Show("You must add a cage first");
+                return;
+
+            }
             AddBirdForm birdForm = new AddBirdForm(database);
             birdForm.ShowDialog();
         }

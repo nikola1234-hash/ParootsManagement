@@ -129,12 +129,17 @@ namespace ParootsManagement
                 MessageBox.Show("Invalid material. Please select a valid material option.");
                 return;
             }
-
-
+            bool idExists = database.Cages.FirstOrDefault(s => s.Id == cageId.Text) != null;
+            if (idExists)
+            {
+                MessageBox.Show("Cage with this ID already exists. Please enter a different ID.");
+                cageId.Text = string.Empty;
+                return;
+            }
             // Create a new instance of Cage and populate its properties
             Cage newCage = new Cage
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = cageId.Text,
                 UserId = UserStore.Id, // provide the appropriate value for the UserId property,
                 Height = height,
                 Width = width,
@@ -156,6 +161,7 @@ namespace ParootsManagement
             HeightTextBox.Text = string.Empty;
             WidthTextBox.Text = string.Empty;
             LengthTextBox.Text = string.Empty;
+            cageId.Text = string.Empty;
             MaterialComboBox.SelectedIndex = -1; // Clear the selected material
         }
 
@@ -203,5 +209,28 @@ namespace ParootsManagement
                 e.Handled = true;
             }
         }
+
+        //private void cageId_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (char.IsControl(e.KeyChar))
+        //    {
+        //        // Allow control characters (e.g., Backspace) to be entered
+        //        return;
+        //    }
+
+        //    // Check if the entered key is a digit
+        //    if (!char.IsDigit(e.KeyChar))
+        //    {
+        //        // Prevent non-numeric characters from being entered
+        //        e.Handled = true;
+        //        return;
+        //    }
+        //    else if (!char.IsLetter(e.KeyChar))
+        //    {
+        //        e.Handled = true;// Prevent non-alphabetic characters from being entered
+        //        return;
+        //    }
+
+        //}
     }
 }

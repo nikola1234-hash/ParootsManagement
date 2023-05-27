@@ -34,9 +34,14 @@ namespace ParootsManagement.Services
             WriteData(emptyDatabase);
         }
 
-        private int GetNextId<T>(List<T> dataList)
+        public int GetNextId<T>(List<T> items) where T : class, new()
         {
-            int maxId = dataList.Max(data => GetIdValue(data));
+            if (items == null || items.Count == 0)
+            {
+                return 1;
+            }
+
+            int maxId = items.Max(i => ((dynamic)i).Id);
             return maxId + 1;
         }
 
@@ -73,49 +78,8 @@ namespace ParootsManagement.Services
             // Increment the Id and ensure unique Ids
             try
             {
-                Database db = null;
-                if (isFirstTime)
-                {
-                    db = new Database();
-                    isFirstTime = false;
-                }
-                else
-                {
-                    db = ReadData<Database>();
-                }
-                if (data.Birds != null)
-                {
-                    foreach (var bird in data.Birds)
-                    {
-                        foreach (var dbbird in db.Birds)
-                        {
-                            if (bird.Id == dbbird.Id)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                bird.Id = GetNextId(data.Birds);
-                            }
-                        }
-
-                    }
-                }
-
-                if (data.Cages != null)
-                {
-                    foreach (var cage in data.Cages)
-                    {
-                        foreach (var dbCage in db.Cages)
-                        {
-                            if (cage.Id == dbCage.Id)
-                                continue;
-                            else
-                                cage.Id = cage.Id;
-                        }
-
-                    }
-                }
+                Database db = isFirstTime ? new Database() : ReadData<Database>();
+                isFirstTime = false;
 
                 // Write the data to the file
                 string json = JsonConvert.SerializeObject(data);
@@ -123,10 +87,10 @@ namespace ParootsManagement.Services
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
+
 
 
     }

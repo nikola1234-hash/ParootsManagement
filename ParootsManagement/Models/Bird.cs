@@ -1,36 +1,10 @@
 ﻿using System;
+using System.Linq;
 
 namespace ParootsManagement.Models
 {
-    public enum HeadColor
-    {
-        Red,
-        Black,
-        Yellow
-    }
-    public enum BodyColor
-    {
-        Green,
-        Yellow,
-        Blue,
-        Silver,
-        Dilute,    // Male only
-        Pastel     // Male only
-    }
 
-    public enum BreastColor
-    {
-        Purple,
-        White,
-        Lilac
-    }
-    public enum Factor
-    {
-        SF,
-        DF
-    }
-
-    public class Bird
+    public class Bird : BirdPhisicalFeatures
     {
         public int Id { get; set; }
         public Guid UserId { get; set; }
@@ -41,16 +15,23 @@ namespace ParootsManagement.Models
         public string CageId { get; set; }
         public int FatherIdentificationNumber { get; set; }
         public int MotherIdentificationNumber { get; set; }
-        public BodyColor BodyColor { get; set; }
-        public Factor BodyFactor { get; set; }
-        public bool IsSplitBody { get; set; } // if the bird is split for the BodyColor
-        public HeadColor HeadColor { get; set; }
-        public Factor HeadFactor { get; set; }
-        public bool IsSplitHead { get; set; } // if the bird is split for the HeadColor
-        public BreastColor BreastColor { get; set; }
+
         public override string ToString()
         {
             return $"Id: {Id}, Species: {Specie}, Subspecies: {SubSpecie}, BirthDate: {BirthDate.ToShortDateString()}\n, Gender: {Gender}, CageNumber: {CageId}, FatherID: {FatherIdentificationNumber}, MotherID: {MotherIdentificationNumber}";
+        }
+        public int GenerateBirdId(Database db)
+        {
+            if (db.Birds != null && db.Birds.Count > 0)
+            {
+                int maxId = db.Birds.Max(bird => bird.Id);
+                return maxId + 1;
+            }
+            else
+            {
+                // If there are no birds in the database yet, start with Id = 1
+                return 1;
+            }
         }
     }
 }
