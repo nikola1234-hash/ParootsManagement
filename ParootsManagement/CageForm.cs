@@ -17,12 +17,23 @@ namespace ParootsManagement
     public partial class CageForm : Form
     {
         private Database database;
-        private DatabaseService databaseService;
+        private DatabaseService databaseService => new DatabaseService();
+        Cage cage = new Cage();
         public CageForm(Database database)
         {
             InitializeComponent();
             this.database = database;
 
+            InitializeDatabase();
+            InitializeComboBox();
+
+
+        }
+        public CageForm(Cage cage, Database database)
+        {
+            InitializeComponent();
+            this.database = database;
+            this.cage = cage;
             InitializeDatabase();
             InitializeComboBox();
 

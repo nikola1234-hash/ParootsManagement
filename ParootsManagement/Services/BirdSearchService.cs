@@ -1,4 +1,5 @@
-﻿using ParootsManagement.Models;
+﻿using ParootsManagement.Const;
+using ParootsManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,16 +48,12 @@ namespace ParootsManagement.Services
 
             if (resultCount == 1)
             {
-                // Only one result found, show the bird
-                Bird bird = searchResults[0];
-                birdList.Add(bird);
-                return birdList;
+                return searchResults;
             }
             else if (resultCount > 1)
             {
                 // Multiple results found, show them in the DataGridView
-                birdList.AddRange(searchResults);
-                return birdList;
+                return searchResults;
             }
             else
             {
@@ -68,25 +65,25 @@ namespace ParootsManagement.Services
         private List<Bird> SearchBirdsById(string id)
         {
             // Perform the search by bird id
-            return birdList.Where(bird => bird.Id.ToString() == id).ToList();
+            return birdList.Where(bird => bird.Id.ToString() == id && bird.UserId == UserStore.Id).ToList();
         }
 
         private List<Bird> SearchBirdsBySpecies(string species)
         {
             // Perform the search by bird species
-            return birdList.Where(bird => bird.Specie.Equals(species, StringComparison.OrdinalIgnoreCase)).ToList();
+            return birdList.Where(bird => bird.Specie.Equals(species, StringComparison.OrdinalIgnoreCase) && bird.UserId == UserStore.Id).ToList();
         }
 
         private List<Bird> SearchBirdsByBirthDate(DateTime birthDate)
         {
             // Perform the search by bird birth date
-            return birdList.Where(bird => bird.BirthDate.Date == birthDate.Date).ToList();
+            return birdList.Where(bird => bird.BirthDate.Date == birthDate.Date && bird.UserId == UserStore.Id).ToList();
         }
 
         private List<Bird> SearchBirdsByGender(string gender)
         {
             // Perform the search by bird gender
-            return birdList.Where(bird => bird.Gender.Equals(gender, StringComparison.OrdinalIgnoreCase)).ToList();
+            return birdList.Where(bird => bird.Gender.Equals(gender, StringComparison.OrdinalIgnoreCase) && bird.UserId == UserStore.Id).ToList();
         }
 
     }

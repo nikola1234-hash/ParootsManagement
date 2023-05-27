@@ -17,6 +17,7 @@ namespace ParootsManagement
     {
         private Database database;
         private DatabaseService databaseService;
+        private Bird bird;
         enum Gender
         {
             Male,
@@ -29,6 +30,100 @@ namespace ParootsManagement
             database = db;
             databaseService = new DatabaseService();
             PopulateComboBoxes();
+        }
+        public AddBirdForm(Bird bird, Database db)
+        {
+            InitializeComponent();
+            database = db;
+            this.bird = bird;
+            databaseService = new DatabaseService();
+            PopulateComboBoxes();
+            InitializeFields();
+
+        }
+        private void InitializeFields()
+        {
+            if (bird is null)
+            {
+                MessageBox.Show("Fatal error");
+                return;
+            }
+
+
+            specieComboBox.SelectedItem = bird.Specie;
+            genderComboBox.SelectedItem = bird.Gender;
+            birthDatePicker.Value = bird.BirthDate;
+            cageNumberTextBox.Text = bird.CageNumber;
+            fatherId.Text = bird.FatherIdentificationNumber.ToString();
+            motherId.Text = bird.MotherIdentificationNumber.ToString();
+            button1.Text = "Update";
+            button1.Click -= btnAddBird_Click;
+            button1.Click += update_Click;
+
+        }
+
+        private void update_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Retrieve the bird details from the form controls
+                string species = specieComboBox.Text;
+                string subSpecies = subSpecieComboBox.Text;
+                DateTime birthDate = birthDatePicker.Value;
+                string gender = genderComboBox.Text;
+                string cageNumber = cageNumberTextBox.Text;
+                int fatherIdNumber;
+                int motherIdNumber;
+
+
+                // Parse fatherId and motherId using Int32.TryParse()
+                if (!int.TryParse(fatherId.Text, out fatherIdNumber))
+                {
+                    MessageBox.Show("Father ID must be a valid number.");
+                    return;
+                }
+
+                if (!int.TryParse(motherId.Text, out motherIdNumber))
+                {
+                    MessageBox.Show("Mother ID must be a valid number.");
+                    return;
+                }
+                // Validate the bird details
+                if (!ValidateBirdDetails(species, subSpecies, birthDate, gender, cageNumber, fatherIdNumber, motherIdNumber))
+                {
+                    MessageBox.Show("Invalid bird details. Please check the inputs.");
+                    return;
+                }
+
+                var birdToUpdate = database.Birds.FirstOrDefault(s => s.Id == bird.Id);
+                var index = database.Birds.IndexOf(birdToUpdate);
+                if (birdToUpdate == null)
+                {
+                    MessageBox.Show("This bird doesnt exist with this ID");
+                    return;
+                }
+                birdToUpdate.Specie = species;
+                birdToUpdate.SubSpecie = subSpecies;
+                birdToUpdate.BirthDate = birthDate;
+                birdToUpdate.Gender = gender;
+                birdToUpdate.CageNumber = cageNumber;
+                birdToUpdate.FatherIdentificationNumber = fatherIdNumber;
+                birdToUpdate.MotherIdentificationNumber = motherIdNumber;
+                // Add the new bird to the database
+                database.Birds[index] = birdToUpdate;
+                SaveDatabase();
+
+                MessageBox.Show("Bird updated successfully!");
+                ClearForm();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+
+                this.DialogResult = DialogResult.Abort;
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void PopulateComboBoxes()
