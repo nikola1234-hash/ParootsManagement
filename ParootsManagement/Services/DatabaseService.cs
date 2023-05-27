@@ -81,7 +81,7 @@ namespace ParootsManagement.Services
             {
                 foreach (var cage in data.Cages)
                 {
-                    cage.Id = GetNextId(data.Cages);
+                    cage.Id = cage.Id;
                 }
             }
 

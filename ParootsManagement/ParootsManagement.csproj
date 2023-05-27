@@ -80,6 +80,12 @@
     <Compile Include="AddBirdForm.Designer.cs">
       <DependentUpon>AddBirdForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CageForm.Designer.cs">
+      <DependentUpon>CageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Const\UserStore.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -96,6 +102,7 @@
     <Compile Include="Models\Bird.cs" />
     <Compile Include="Models\Cage.cs" />
     <Compile Include="Models\Database.cs" />
+    <Compile Include="Models\Material.cs" />
     <Compile Include="Models\Species.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,10 +113,14 @@
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs" />
+    <Compile Include="Services\BirdSearchService.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\ExcelService.cs" />
     <EmbeddedResource Include="AddBirdForm.resx">
       <DependentUpon>AddBirdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CageForm.resx">
+      <DependentUpon>CageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
