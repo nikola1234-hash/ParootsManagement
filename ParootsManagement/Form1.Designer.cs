@@ -44,11 +44,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.birdsGroupBox = new System.Windows.Forms.GroupBox();
+            this.birdsInCageListBox = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.searchPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultDataGrid)).BeginInit();
+            this.birdsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,7 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 453);
+            this.panel1.Size = new System.Drawing.Size(1274, 453);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -105,6 +108,7 @@
             // 
             // searchPanel
             // 
+            this.searchPanel.Controls.Add(this.birdsGroupBox);
             this.searchPanel.Controls.Add(this.editButton);
             this.searchPanel.Controls.Add(this.label4);
             this.searchPanel.Controls.Add(this.label3);
@@ -114,7 +118,7 @@
             this.searchPanel.Controls.Add(this.resultDataGrid);
             this.searchPanel.Location = new System.Drawing.Point(201, 12);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(597, 426);
+            this.searchPanel.Size = new System.Drawing.Size(1061, 426);
             this.searchPanel.TabIndex = 0;
             // 
             // button3
@@ -140,29 +144,29 @@
             // resultDataGrid
             // 
             this.resultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultDataGrid.Location = new System.Drawing.Point(3, 100);
+            this.resultDataGrid.Location = new System.Drawing.Point(3, 208);
             this.resultDataGrid.Name = "resultDataGrid";
-            this.resultDataGrid.Size = new System.Drawing.Size(590, 323);
+            this.resultDataGrid.Size = new System.Drawing.Size(1044, 215);
             this.resultDataGrid.TabIndex = 0;
             // 
             // criteriaComboBox
             // 
             this.criteriaComboBox.FormattingEnabled = true;
-            this.criteriaComboBox.Location = new System.Drawing.Point(3, 50);
+            this.criteriaComboBox.Location = new System.Drawing.Point(4, 24);
             this.criteriaComboBox.Name = "criteriaComboBox";
             this.criteriaComboBox.Size = new System.Drawing.Size(121, 21);
             this.criteriaComboBox.TabIndex = 1;
             // 
             // keywordTextbox
             // 
-            this.keywordTextbox.Location = new System.Drawing.Point(130, 51);
+            this.keywordTextbox.Location = new System.Drawing.Point(131, 25);
             this.keywordTextbox.Name = "keywordTextbox";
             this.keywordTextbox.Size = new System.Drawing.Size(100, 20);
             this.keywordTextbox.TabIndex = 2;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(237, 49);
+            this.button6.Location = new System.Drawing.Point(238, 23);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 3;
@@ -173,7 +177,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 30);
+            this.label3.Location = new System.Drawing.Point(4, 4);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(39, 13);
@@ -183,7 +187,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(131, 30);
+            this.label4.Location = new System.Drawing.Point(132, 4);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label4.Size = new System.Drawing.Size(48, 13);
@@ -202,7 +206,7 @@
             // 
             // editButton
             // 
-            this.editButton.Location = new System.Drawing.Point(378, 49);
+            this.editButton.Location = new System.Drawing.Point(406, 25);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(75, 23);
             this.editButton.TabIndex = 6;
@@ -210,11 +214,30 @@
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
+            // birdsGroupBox
+            // 
+            this.birdsGroupBox.Controls.Add(this.birdsInCageListBox);
+            this.birdsGroupBox.Location = new System.Drawing.Point(4, 63);
+            this.birdsGroupBox.Name = "birdsGroupBox";
+            this.birdsGroupBox.Size = new System.Drawing.Size(1043, 123);
+            this.birdsGroupBox.TabIndex = 7;
+            this.birdsGroupBox.TabStop = false;
+            this.birdsGroupBox.Text = "Birds in cage";
+            // 
+            // birdsInCageListBox
+            // 
+            this.birdsInCageListBox.FormattingEnabled = true;
+            this.birdsInCageListBox.Location = new System.Drawing.Point(7, 20);
+            this.birdsInCageListBox.Name = "birdsInCageListBox";
+            this.birdsInCageListBox.ScrollAlwaysVisible = true;
+            this.birdsInCageListBox.Size = new System.Drawing.Size(1030, 95);
+            this.birdsInCageListBox.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 453);
+            this.ClientSize = new System.Drawing.Size(1274, 453);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -225,6 +248,7 @@
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resultDataGrid)).EndInit();
+            this.birdsGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -247,6 +271,8 @@
         private System.Windows.Forms.DataGridView resultDataGrid;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button editButton;
+        private System.Windows.Forms.GroupBox birdsGroupBox;
+        private System.Windows.Forms.ListBox birdsInCageListBox;
     }
 }
 

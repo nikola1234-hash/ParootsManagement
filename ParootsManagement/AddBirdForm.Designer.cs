@@ -47,6 +47,7 @@
             this.specieComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.childButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.childButton);
             this.groupBox6.Controls.Add(this.motherId);
             this.groupBox6.Controls.Add(this.label3);
             this.groupBox6.Controls.Add(this.fatherId);
@@ -236,6 +238,16 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // childButton
+            // 
+            this.childButton.Location = new System.Drawing.Point(328, 179);
+            this.childButton.Name = "childButton";
+            this.childButton.Size = new System.Drawing.Size(75, 23);
+            this.childButton.TabIndex = 6;
+            this.childButton.Text = "Add Child";
+            this.childButton.UseVisualStyleBackColor = true;
+            this.childButton.Click += new System.EventHandler(this.childButton_Click);
+            // 
             // AddBirdForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,5 +291,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button childButton;
     }
 }

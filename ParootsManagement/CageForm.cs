@@ -2,15 +2,8 @@
 using ParootsManagement.Models;
 using ParootsManagement.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ParootsManagement
 {
@@ -23,8 +16,6 @@ namespace ParootsManagement
         {
             InitializeComponent();
             this.database = database;
-
-            InitializeDatabase();
             InitializeComboBox();
 
 
@@ -34,11 +25,77 @@ namespace ParootsManagement
             InitializeComponent();
             this.database = database;
             this.cage = cage;
-            InitializeDatabase();
             InitializeComboBox();
-
+            InitializeFields();
 
         }
+
+
+        private void InitializeFields()
+        {
+            if (cage == null)
+            {
+                MessageBox.Show("Fatal error");
+                Environment.Exit(-1);
+
+
+            }
+
+            HeightTextBox.Text = cage.Height.ToString();
+            WidthTextBox.Text = cage.Width.ToString();
+            LengthTextBox.Text = cage.Length.ToString();
+            MaterialComboBox.SelectedItem = cage.Material;
+
+            button1.Text = "Update";
+            button1.Click -= AddCageButton_Click;
+            button1.Click += Button1_Click;
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            // Get the user-entered values from the form controls
+            double height = Convert.ToDouble(HeightTextBox.Text);
+            double width = Convert.ToDouble(WidthTextBox.Text);
+            double length = Convert.ToDouble(LengthTextBox.Text);
+            Material material = (Material)MaterialComboBox.SelectedItem;
+            var cageToUpdate = database.Cages.FirstOrDefault(s => s.Id == cage.Id);
+            var index = database.Cages.IndexOf(cageToUpdate);
+
+
+            if (!ValidateDimension(HeightTextBox.Text) || !ValidateDimension(WidthTextBox.Text) || !ValidateDimension(LengthTextBox.Text))
+            {
+                MessageBox.Show("Invalid dimensions. Please enter positive numeric values.");
+                return;
+            }
+
+            if (!ValidateMaterial(MaterialComboBox.SelectedItem))
+            {
+                MessageBox.Show("Invalid material. Please select a valid material option.");
+                return;
+            }
+
+
+            // Create a new instance of Cage and populate its properties
+            Cage newCage = new Cage
+            {
+                Id = cageToUpdate.Id,
+                UserId = cageToUpdate.UserId, // provide the appropriate value for the UserId property,
+                Height = height,
+                Width = width,
+                Length = length,
+                Material = material.ToString()
+            };
+
+            database.Cages[index] = newCage;
+            databaseService.WriteData(database);
+            // Clear the form controls or show a success message
+            ClearForm();
+            MessageBox.Show("Cage updated successfully!");
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
         private void InitializeDatabase()
         {
             database = databaseService.ReadData<Database>();
@@ -82,7 +139,7 @@ namespace ParootsManagement
                 Height = height,
                 Width = width,
                 Length = length,
-                Material = material
+                Material = material.ToString()
             };
 
             database.Cages.Add(newCage);

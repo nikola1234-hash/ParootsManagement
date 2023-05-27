@@ -65,25 +65,25 @@ namespace ParootsManagement.Services
         private List<Bird> SearchBirdsById(string id)
         {
             // Perform the search by bird id
-            return birdList.Where(bird => bird.Id.ToString() == id && bird.UserId == UserStore.Id).ToList();
+            return birdList.Where(bird => bird.Id.ToString() == id && bird.UserId == UserStore.Id).OrderBy(s => s.Id).ToList();
         }
 
         private List<Bird> SearchBirdsBySpecies(string species)
         {
             // Perform the search by bird species
-            return birdList.Where(bird => bird.Specie.Equals(species, StringComparison.OrdinalIgnoreCase) && bird.UserId == UserStore.Id).ToList();
+            return birdList.Where(bird => bird.Specie.Equals(species, StringComparison.OrdinalIgnoreCase) && bird.UserId == UserStore.Id).OrderBy(s => s.Id).ToList();
         }
 
         private List<Bird> SearchBirdsByBirthDate(DateTime birthDate)
         {
             // Perform the search by bird birth date
-            return birdList.Where(bird => bird.BirthDate.Date == birthDate.Date && bird.UserId == UserStore.Id).ToList();
+            return birdList.Where(bird => bird.BirthDate.Date == birthDate.Date && bird.UserId == UserStore.Id).OrderBy(s => s.Id).ToList();
         }
 
         private List<Bird> SearchBirdsByGender(string gender)
         {
             // Perform the search by bird gender
-            return birdList.Where(bird => bird.Gender.Equals(gender, StringComparison.OrdinalIgnoreCase) && bird.UserId == UserStore.Id).ToList();
+            return birdList.Where(bird => bird.Gender.Equals(gender, StringComparison.OrdinalIgnoreCase) && bird.UserId == UserStore.Id).OrderBy(s => s.Id).ToList();
         }
 
     }

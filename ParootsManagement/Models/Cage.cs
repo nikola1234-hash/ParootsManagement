@@ -10,7 +10,7 @@ namespace ParootsManagement.Models
         public double Height { get; set; }
         public double Width { get; set; }
         public double Length { get; set; }
-        public Material Material { get; set; }
+        public string Material { get; set; }
         public List<int> BirdIds { get; set; }
 
         public Cage()

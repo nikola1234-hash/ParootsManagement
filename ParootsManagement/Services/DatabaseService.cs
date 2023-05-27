@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ParootsManagement.Services
 {
@@ -13,7 +14,7 @@ namespace ParootsManagement.Services
     {
         private string databaseFilePath;
         private string databaseName = "database.json";
-
+        private bool isFirstTime = false;
         public DatabaseService()
         {
             string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -53,6 +54,7 @@ namespace ParootsManagement.Services
         {
             if (!File.Exists(databaseFilePath))
             {
+                isFirstTime = true;
                 CreateEmptyDatabase();
             }
 
@@ -69,25 +71,61 @@ namespace ParootsManagement.Services
             }
 
             // Increment the Id and ensure unique Ids
-            if (data.Birds != null)
+            try
             {
-                foreach (var bird in data.Birds)
+                Database db = null;
+                if (isFirstTime)
                 {
-                    bird.Id = GetNextId(data.Birds);
+                    db = new Database();
+                    isFirstTime = false;
                 }
-            }
+                else
+                {
+                    db = ReadData<Database>();
+                }
+                if (data.Birds != null)
+                {
+                    foreach (var bird in data.Birds)
+                    {
+                        foreach (var dbbird in db.Birds)
+                        {
+                            if (bird.Id == dbbird.Id)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                bird.Id = GetNextId(data.Birds);
+                            }
+                        }
 
-            if (data.Cages != null)
+                    }
+                }
+
+                if (data.Cages != null)
+                {
+                    foreach (var cage in data.Cages)
+                    {
+                        foreach (var dbCage in db.Cages)
+                        {
+                            if (cage.Id == dbCage.Id)
+                                continue;
+                            else
+                                cage.Id = cage.Id;
+                        }
+
+                    }
+                }
+
+                // Write the data to the file
+                string json = JsonConvert.SerializeObject(data);
+                File.WriteAllText(databaseFilePath, json);
+            }
+            catch (Exception ex)
             {
-                foreach (var cage in data.Cages)
-                {
-                    cage.Id = cage.Id;
-                }
-            }
 
-            // Write the data to the file
-            string json = JsonConvert.SerializeObject(data);
-            File.WriteAllText(databaseFilePath, json);
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

@@ -52,8 +52,9 @@ namespace ParootsManagement
 
             specieComboBox.SelectedItem = bird.Specie;
             genderComboBox.SelectedItem = bird.Gender;
+            subSpecieComboBox.SelectedItem = bird.SubSpecie;
             birthDatePicker.Value = bird.BirthDate;
-            cageNumberTextBox.Text = bird.CageNumber;
+            cageNumberTextBox.Text = bird.CageId;
             fatherId.Text = bird.FatherIdentificationNumber.ToString();
             motherId.Text = bird.MotherIdentificationNumber.ToString();
             button1.Text = "Update";
@@ -106,7 +107,7 @@ namespace ParootsManagement
                 birdToUpdate.SubSpecie = subSpecies;
                 birdToUpdate.BirthDate = birthDate;
                 birdToUpdate.Gender = gender;
-                birdToUpdate.CageNumber = cageNumber;
+                birdToUpdate.CageId = cageNumber;
                 birdToUpdate.FatherIdentificationNumber = fatherIdNumber;
                 birdToUpdate.MotherIdentificationNumber = motherIdNumber;
                 // Add the new bird to the database
@@ -220,12 +221,19 @@ namespace ParootsManagement
                 SubSpecie = subSpecies,
                 BirthDate = birthDate,
                 Gender = gender,
-                CageNumber = cageNumber,
+                CageId = cageNumber,
                 FatherIdentificationNumber = fatherIdNumber,
                 MotherIdentificationNumber = motherIdNumber,
                 UserId = UserStore.Id
             };
 
+            var cage = database.Cages.Where(s => s.Id == cageNumber).FirstOrDefault();
+            var cageIndex = database.Cages.IndexOf(cage);
+            if (cage != null)
+            {
+                cage.BirdIds.Add(newBird.Id);
+                database.Cages[cageIndex] = cage;
+            }
             // Add the new bird to the database
             database.Birds.Add(newBird);
             SaveDatabase();
@@ -326,6 +334,11 @@ namespace ParootsManagement
             {
                 this.Close();
             }
+        }
+
+        private void childButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
