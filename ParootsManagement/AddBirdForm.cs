@@ -46,23 +46,22 @@ namespace ParootsManagement
             PopulateComboBoxes();
             InitializeFields();
             childButton.Visible = true;
-            childButton.Click += ChildButton_Click;
 
         }
 
-        private void ChildButton_Click(object sender, EventArgs e)
-        {
-            AddChildForm childForm = new AddChildForm(database, bird);
-            var result = childForm.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                SaveDatabase();
-            }
-            else
-            {
-                return;
-            }
-        }
+        //private void ChildButton_Click(object sender, EventArgs e)
+        //{
+        //    AddChildForm childForm = new AddChildForm(database, bird);
+        //    var result = childForm.ShowDialog();
+        //    if (result == DialogResult.OK)
+        //    {
+        //        SaveDatabase();
+        //    }
+        //    else
+        //    {
+        //        return;
+        //    }
+        //}
 
         private void InitializeFields()
         {

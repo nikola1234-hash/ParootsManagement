@@ -256,6 +256,7 @@
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(121, 21);
             this.genderComboBox.TabIndex = 0;
+            this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.genderComboBox_SelectedIndexChanged);
             // 
             // groupBox3
             // 

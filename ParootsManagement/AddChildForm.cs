@@ -76,7 +76,7 @@ namespace ParootsManagement
 
             }
             child.Specie = parent.Specie;
-            child.Specie = parent.SubSpecie;
+            child.SubSpecie = parent.SubSpecie;
             child.CageId = parent.CageId;
             child.UserId = UserStore.Id;
 
@@ -85,7 +85,7 @@ namespace ParootsManagement
 
         private void MotherCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            child.MotherIdentificationNumber = (int)motherCombobox.SelectedValue;
+            child.MotherIdentificationNumber = ((Bird)motherCombobox.SelectedItem).Id;
             var mother = db.Birds.FirstOrDefault(s => s.Id == child.MotherIdentificationNumber);
             child.HeadColor = BirdColorService.DetermineHeadColor(parent, mother);
             child.BodyColor = BirdColorService.DetermineBodyColor(parent, mother);
@@ -97,7 +97,7 @@ namespace ParootsManagement
 
         private void FatherComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            child.FatherIdentificationNumber = (int)fatherComboBox.SelectedItem;
+            child.FatherIdentificationNumber = ((Bird)fatherComboBox.SelectedItem).Id;
             var father = db.Birds.FirstOrDefault(s => s.Id == child.FatherIdentificationNumber);
             child.HeadColor = BirdColorService.DetermineHeadColor(parent, father);
             child.BodyColor = BirdColorService.DetermineBodyColor(parent, father);
@@ -117,9 +117,10 @@ namespace ParootsManagement
             bodyCombo.Items.AddRange(Enum.GetNames(typeof(BodyColor)));
             breastCombo.Items.AddRange(Enum.GetNames(typeof(BreastColor)));
 
+            cageNumberTextBox.Text = parent.CageId.ToString();
+            specieComboBox.SelectedItem = child.Specie.ToString();
+            subSpecieComboBox.SelectedItem = child.SubSpecie.ToString();
 
-            specieComboBox.SelectedItem = child.Specie;
-            subSpecieComboBox.SelectedItem = child.SubSpecie;
 
         }
 
@@ -131,7 +132,16 @@ namespace ParootsManagement
         private void button1_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+            child.Id = child.GenerateBirdId(db);
+            db.Birds.Add(child);
+            var cage = db.Cages.FirstOrDefault(s => s.Id == child.CageId);
+            cage.BirdIds.Add(child.Id);
             this.Close();
+        }
+
+        private void genderComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            child.Gender = genderComboBox.SelectedItem.ToString();
         }
     }
 }
