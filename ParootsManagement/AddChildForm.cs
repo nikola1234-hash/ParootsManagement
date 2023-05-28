@@ -131,7 +131,25 @@ namespace ParootsManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // Assume the date of birth cannot be in the future
+            if (birthDatePicker.Value > DateTime.Now)
+            {
+                MessageBox.Show("The date of birth cannot be in the future.");
+                return;
+            }
+
+            // Make sure gender, head color, body color, and breast color are selected
+            if (genderComboBox.SelectedItem == null ||
+                headCombo.SelectedItem == null ||
+                bodyCombo.SelectedItem == null ||
+                breastCombo.SelectedItem == null)
+            {
+                MessageBox.Show("Please select all options.");
+                return;
+            }
+
             this.DialogResult = DialogResult.OK;
+            child.BirthDate = (DateTime)birthDatePicker.Value;
             child.Id = child.GenerateBirdId(db);
             db.Birds.Add(child);
             var cage = db.Cages.FirstOrDefault(s => s.Id == child.CageId);

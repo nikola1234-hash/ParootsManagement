@@ -216,6 +216,11 @@ namespace ParootsManagement
             InitializeBirdDataGrids();
             InitializeBirdComboBox();
             searchPanel.Show();
+            if (database.Birds.Count == 1)
+            {
+                AddBirdForm frm = new AddBirdForm(database.Birds[0], database);
+                frm.ShowDialog();
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -228,6 +233,11 @@ namespace ParootsManagement
             InitializeCageDataGrids();
 
             searchPanel.Show();
+            if (database.Cages.Count == 1)
+            {
+                CageForm frm = new CageForm(database.Cages[0], database);
+                frm.ShowDialog();
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)

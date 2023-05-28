@@ -67,7 +67,7 @@ namespace ParootsManagement
         private bool ValidateRegistration(string username, string password, List<Dictionary<string, object>> excelData)
         {
             // Validate the username
-            if (!Regex.IsMatch(username, "^[A-Za-z]{1,6}[0-9]{0,2}$"))
+            if (!Regex.IsMatch(username, "^(?=(.*\\d){2})(?=.*[a-zA-Z])[a-zA-Z\\d]{6,8}$"))
             {
                 MessageBox.Show("Invalid username! Username should contain 6-8 characters with a maximum of 2 digits.");
                 return false;
@@ -81,13 +81,6 @@ namespace ParootsManagement
             }
 
 
-            // Additional validation logic for the identification number if needed
-
-            // Perform duplicate username check if required
-            // Example:
-            // var excelData = ReadExcelData();
-            //    // Check if the username already exists
-            // Replace the below line with the actual validation logic based on your Excel file structure
             var usernameExists = excelData.Any(row => row["username"].ToString() == username);
 
             if (usernameExists)

@@ -244,8 +244,21 @@ namespace ParootsManagement
                 MessageBox.Show("Invalid bird details. Please check the inputs.");
                 return;
             }
-
-
+            if (headCombo.Text == string.Empty)
+            {
+                MessageBox.Show("Select head color!");
+                return;
+            }
+            if (bodyCombo.Text == string.Empty)
+            {
+                MessageBox.Show("Select body color!");
+                return;
+            }
+            if (breastCombo.Text == string.Empty)
+            {
+                MessageBox.Show("Select breast color!");
+                return;
+            }
             Bird newBird = new Bird
             {
 
