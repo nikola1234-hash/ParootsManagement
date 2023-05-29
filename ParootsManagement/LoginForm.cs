@@ -42,8 +42,9 @@ namespace ParootsManagement
                 // Successful login
                 MessageBox.Show("Login successful!");
                 CreateUserPersistance(username, password);
-                Form1 form = new Form1();
-                form.Show();
+                SplashForm sf = new SplashForm();
+                sf.Show();
+
                 this.Hide();
             }
             else
