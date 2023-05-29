@@ -19,6 +19,7 @@ namespace ParootsManagement
         {
             InitializeComponent();
             ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -75,6 +76,11 @@ namespace ParootsManagement
             });
 
             return validCredentials;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

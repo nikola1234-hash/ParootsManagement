@@ -28,24 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.birdsGroupBox = new System.Windows.Forms.GroupBox();
-            this.birdsInCageListBox = new System.Windows.Forms.ListBox();
-            this.editButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.keywordTextbox = new System.Windows.Forms.TextBox();
-            this.criteriaComboBox = new System.Windows.Forms.ComboBox();
-            this.resultDataGrid = new System.Windows.Forms.DataGridView();
+            this.keywordTextBox = new ReaLTaiizor.Controls.MetroTextBox();
+            this.button6 = new ReaLTaiizor.Controls.MetroButton();
+            this.metroButton1 = new ReaLTaiizor.Controls.MetroButton();
+            this.metroButton2 = new ReaLTaiizor.Controls.MetroButton();
+            this.metroButton3 = new ReaLTaiizor.Controls.MetroButton();
+            this.metroButton4 = new ReaLTaiizor.Controls.MetroButton();
+            this.airButton1 = new ReaLTaiizor.Controls.AirButton();
+            this.criteriaComboBox = new ReaLTaiizor.Controls.MetroComboBox();
+            this.editButton = new ReaLTaiizor.Controls.MetroButton();
+            this.birdsInCageListBox = new ReaLTaiizor.Controls.MetroListBox();
+            this.resultDataGrid = new ReaLTaiizor.Controls.PoisonDataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,86 +69,38 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button5);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(183, 425);
+            this.panel2.Size = new System.Drawing.Size(189, 425);
             this.panel2.TabIndex = 0;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(10, 391);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(164, 23);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Exit";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.airButton1);
+            this.groupBox1.Controls.Add(this.metroButton4);
+            this.groupBox1.Controls.Add(this.metroButton1);
+            this.groupBox1.Controls.Add(this.metroButton3);
+            this.groupBox1.Controls.Add(this.metroButton2);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(177, 144);
+            this.groupBox1.Size = new System.Drawing.Size(177, 417);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Options";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(7, 110);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(164, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Search Cage";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(7, 80);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 23);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Search Birds";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(7, 50);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Add Cage";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(7, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Add Bird";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // searchPanel
             // 
-            this.searchPanel.Controls.Add(this.birdsGroupBox);
+            this.searchPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.searchPanel.Controls.Add(this.resultDataGrid);
             this.searchPanel.Controls.Add(this.editButton);
+            this.searchPanel.Controls.Add(this.criteriaComboBox);
+            this.searchPanel.Controls.Add(this.button6);
+            this.searchPanel.Controls.Add(this.keywordTextBox);
+            this.searchPanel.Controls.Add(this.birdsGroupBox);
             this.searchPanel.Controls.Add(this.label4);
             this.searchPanel.Controls.Add(this.label3);
-            this.searchPanel.Controls.Add(this.button6);
-            this.searchPanel.Controls.Add(this.keywordTextbox);
-            this.searchPanel.Controls.Add(this.criteriaComboBox);
-            this.searchPanel.Controls.Add(this.resultDataGrid);
             this.searchPanel.Location = new System.Drawing.Point(201, 12);
             this.searchPanel.Name = "searchPanel";
             this.searchPanel.Size = new System.Drawing.Size(1061, 426);
@@ -160,25 +115,6 @@
             this.birdsGroupBox.TabIndex = 7;
             this.birdsGroupBox.TabStop = false;
             this.birdsGroupBox.Text = "Birds in cage";
-            // 
-            // birdsInCageListBox
-            // 
-            this.birdsInCageListBox.FormattingEnabled = true;
-            this.birdsInCageListBox.Location = new System.Drawing.Point(7, 20);
-            this.birdsInCageListBox.Name = "birdsInCageListBox";
-            this.birdsInCageListBox.ScrollAlwaysVisible = true;
-            this.birdsInCageListBox.Size = new System.Drawing.Size(1030, 95);
-            this.birdsInCageListBox.TabIndex = 0;
-            // 
-            // editButton
-            // 
-            this.editButton.Location = new System.Drawing.Point(406, 25);
-            this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(116, 23);
-            this.editButton.TabIndex = 6;
-            this.editButton.Text = "Show Bird Details";
-            this.editButton.UseVisualStyleBackColor = true;
-            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // label4
             // 
@@ -200,38 +136,314 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Criteria";
             // 
+            // keywordTextBox
+            // 
+            this.keywordTextBox.AutoCompleteCustomSource = null;
+            this.keywordTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.keywordTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.keywordTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.keywordTextBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.keywordTextBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.keywordTextBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.keywordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.keywordTextBox.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.keywordTextBox.Image = null;
+            this.keywordTextBox.IsDerivedStyle = true;
+            this.keywordTextBox.Lines = null;
+            this.keywordTextBox.Location = new System.Drawing.Point(131, 20);
+            this.keywordTextBox.MaxLength = 32767;
+            this.keywordTextBox.Multiline = false;
+            this.keywordTextBox.Name = "keywordTextBox";
+            this.keywordTextBox.ReadOnly = false;
+            this.keywordTextBox.Size = new System.Drawing.Size(135, 30);
+            this.keywordTextBox.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.keywordTextBox.StyleManager = null;
+            this.keywordTextBox.TabIndex = 9;
+            this.keywordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.keywordTextBox.ThemeAuthor = "Taiizor";
+            this.keywordTextBox.ThemeName = "MetroLight";
+            this.keywordTextBox.UseSystemPasswordChar = false;
+            this.keywordTextBox.WatermarkText = "";
+            // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(238, 23);
+            this.button6.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button6.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button6.DisabledForeColor = System.Drawing.Color.Gray;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.button6.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.button6.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.button6.HoverTextColor = System.Drawing.Color.White;
+            this.button6.IsDerivedStyle = true;
+            this.button6.Location = new System.Drawing.Point(272, 20);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 3;
+            this.button6.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button6.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.button6.NormalTextColor = System.Drawing.Color.White;
+            this.button6.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.button6.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.button6.PressTextColor = System.Drawing.Color.White;
+            this.button6.Size = new System.Drawing.Size(108, 30);
+            this.button6.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.button6.StyleManager = null;
+            this.button6.TabIndex = 10;
             this.button6.Text = "Search";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.ThemeAuthor = "Taiizor";
+            this.button6.ThemeName = "MetroLight";
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // keywordTextbox
+            // metroButton1
             // 
-            this.keywordTextbox.Location = new System.Drawing.Point(131, 25);
-            this.keywordTextbox.Name = "keywordTextbox";
-            this.keywordTextbox.Size = new System.Drawing.Size(100, 20);
-            this.keywordTextbox.TabIndex = 2;
+            this.metroButton1.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton1.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton1.DisabledForeColor = System.Drawing.Color.Gray;
+            this.metroButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroButton1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton1.HoverTextColor = System.Drawing.Color.White;
+            this.metroButton1.IsDerivedStyle = true;
+            this.metroButton1.Location = new System.Drawing.Point(0, 22);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton1.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton1.NormalTextColor = System.Drawing.Color.White;
+            this.metroButton1.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton1.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton1.PressTextColor = System.Drawing.Color.White;
+            this.metroButton1.Size = new System.Drawing.Size(177, 42);
+            this.metroButton1.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.metroButton1.StyleManager = null;
+            this.metroButton1.TabIndex = 2;
+            this.metroButton1.Text = "Add Bird";
+            this.metroButton1.ThemeAuthor = "Taiizor";
+            this.metroButton1.ThemeName = "MetroLight";
+            this.metroButton1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton2.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton2.DisabledForeColor = System.Drawing.Color.Gray;
+            this.metroButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroButton2.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton2.HoverTextColor = System.Drawing.Color.White;
+            this.metroButton2.IsDerivedStyle = true;
+            this.metroButton2.Location = new System.Drawing.Point(0, 70);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton2.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton2.NormalTextColor = System.Drawing.Color.White;
+            this.metroButton2.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton2.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton2.PressTextColor = System.Drawing.Color.White;
+            this.metroButton2.Size = new System.Drawing.Size(177, 42);
+            this.metroButton2.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.metroButton2.StyleManager = null;
+            this.metroButton2.TabIndex = 3;
+            this.metroButton2.Text = "Add Cage";
+            this.metroButton2.ThemeAuthor = "Taiizor";
+            this.metroButton2.ThemeName = "MetroLight";
+            this.metroButton2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // metroButton3
+            // 
+            this.metroButton3.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton3.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton3.DisabledForeColor = System.Drawing.Color.Gray;
+            this.metroButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroButton3.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton3.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton3.HoverTextColor = System.Drawing.Color.White;
+            this.metroButton3.IsDerivedStyle = true;
+            this.metroButton3.Location = new System.Drawing.Point(0, 118);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton3.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton3.NormalTextColor = System.Drawing.Color.White;
+            this.metroButton3.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton3.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton3.PressTextColor = System.Drawing.Color.White;
+            this.metroButton3.Size = new System.Drawing.Size(177, 42);
+            this.metroButton3.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.metroButton3.StyleManager = null;
+            this.metroButton3.TabIndex = 4;
+            this.metroButton3.Text = "Search Birds";
+            this.metroButton3.ThemeAuthor = "Taiizor";
+            this.metroButton3.ThemeName = "MetroLight";
+            this.metroButton3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // metroButton4
+            // 
+            this.metroButton4.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton4.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton4.DisabledForeColor = System.Drawing.Color.Gray;
+            this.metroButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.metroButton4.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton4.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.metroButton4.HoverTextColor = System.Drawing.Color.White;
+            this.metroButton4.IsDerivedStyle = true;
+            this.metroButton4.Location = new System.Drawing.Point(0, 166);
+            this.metroButton4.Name = "metroButton4";
+            this.metroButton4.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton4.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.metroButton4.NormalTextColor = System.Drawing.Color.White;
+            this.metroButton4.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton4.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.metroButton4.PressTextColor = System.Drawing.Color.White;
+            this.metroButton4.Size = new System.Drawing.Size(177, 42);
+            this.metroButton4.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.metroButton4.StyleManager = null;
+            this.metroButton4.TabIndex = 5;
+            this.metroButton4.Text = "Search Cage";
+            this.metroButton4.ThemeAuthor = "Taiizor";
+            this.metroButton4.ThemeName = "MetroLight";
+            this.metroButton4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // airButton1
+            // 
+            this.airButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.airButton1.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
+            this.airButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.airButton1.Image = null;
+            this.airButton1.Location = new System.Drawing.Point(36, 366);
+            this.airButton1.Name = "airButton1";
+            this.airButton1.NoRounding = false;
+            this.airButton1.Size = new System.Drawing.Size(106, 45);
+            this.airButton1.TabIndex = 2;
+            this.airButton1.Text = "EXIT";
+            this.airButton1.Transparent = false;
+            this.airButton1.Click += new System.EventHandler(this.button5_Click);
             // 
             // criteriaComboBox
             // 
+            this.criteriaComboBox.AllowDrop = true;
+            this.criteriaComboBox.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.criteriaComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.criteriaComboBox.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
+            this.criteriaComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.criteriaComboBox.CausesValidation = false;
+            this.criteriaComboBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.criteriaComboBox.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
+            this.criteriaComboBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.criteriaComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.criteriaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.criteriaComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.criteriaComboBox.FormattingEnabled = true;
-            this.criteriaComboBox.Location = new System.Drawing.Point(4, 24);
+            this.criteriaComboBox.IsDerivedStyle = true;
+            this.criteriaComboBox.ItemHeight = 20;
+            this.criteriaComboBox.Location = new System.Drawing.Point(4, 23);
             this.criteriaComboBox.Name = "criteriaComboBox";
-            this.criteriaComboBox.Size = new System.Drawing.Size(121, 21);
-            this.criteriaComboBox.TabIndex = 1;
+            this.criteriaComboBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.criteriaComboBox.SelectedItemForeColor = System.Drawing.Color.White;
+            this.criteriaComboBox.Size = new System.Drawing.Size(121, 26);
+            this.criteriaComboBox.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.criteriaComboBox.StyleManager = null;
+            this.criteriaComboBox.TabIndex = 11;
+            this.criteriaComboBox.ThemeAuthor = "Taiizor";
+            this.criteriaComboBox.ThemeName = "MetroLight";
+            // 
+            // editButton
+            // 
+            this.editButton.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.editButton.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.editButton.DisabledForeColor = System.Drawing.Color.Gray;
+            this.editButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.editButton.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.editButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(207)))), ((int)(((byte)(255)))));
+            this.editButton.HoverTextColor = System.Drawing.Color.White;
+            this.editButton.IsDerivedStyle = true;
+            this.editButton.Location = new System.Drawing.Point(386, 18);
+            this.editButton.Name = "editButton";
+            this.editButton.NormalBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.editButton.NormalColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.editButton.NormalTextColor = System.Drawing.Color.White;
+            this.editButton.PressBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.editButton.PressColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(147)))), ((int)(((byte)(195)))));
+            this.editButton.PressTextColor = System.Drawing.Color.White;
+            this.editButton.Size = new System.Drawing.Size(108, 30);
+            this.editButton.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.editButton.StyleManager = null;
+            this.editButton.TabIndex = 12;
+            this.editButton.Text = "Show Details";
+            this.editButton.ThemeAuthor = "Taiizor";
+            this.editButton.ThemeName = "MetroLight";
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // birdsInCageListBox
+            // 
+            this.birdsInCageListBox.BackColor = System.Drawing.Color.White;
+            this.birdsInCageListBox.BorderColor = System.Drawing.Color.LightGray;
+            this.birdsInCageListBox.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.birdsInCageListBox.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            this.birdsInCageListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.birdsInCageListBox.HoveredItemBackColor = System.Drawing.Color.LightGray;
+            this.birdsInCageListBox.HoveredItemColor = System.Drawing.Color.DimGray;
+            this.birdsInCageListBox.IsDerivedStyle = true;
+            this.birdsInCageListBox.ItemHeight = 30;
+            this.birdsInCageListBox.Location = new System.Drawing.Point(6, 19);
+            this.birdsInCageListBox.MultiSelect = false;
+            this.birdsInCageListBox.Name = "birdsInCageListBox";
+            this.birdsInCageListBox.SelectedIndex = -1;
+            this.birdsInCageListBox.SelectedItem = null;
+            this.birdsInCageListBox.SelectedItemBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.birdsInCageListBox.SelectedItemColor = System.Drawing.Color.White;
+            this.birdsInCageListBox.SelectedText = null;
+            this.birdsInCageListBox.SelectedValue = null;
+            this.birdsInCageListBox.ShowBorder = true;
+            this.birdsInCageListBox.ShowScrollBar = true;
+            this.birdsInCageListBox.Size = new System.Drawing.Size(1031, 98);
+            this.birdsInCageListBox.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.birdsInCageListBox.StyleManager = null;
+            this.birdsInCageListBox.TabIndex = 13;
+            this.birdsInCageListBox.ThemeAuthor = "Taiizor";
+            this.birdsInCageListBox.ThemeName = "MetroLight";
             // 
             // resultDataGrid
             // 
+            this.resultDataGrid.AllowUserToAddRows = false;
+            this.resultDataGrid.AllowUserToDeleteRows = false;
+            this.resultDataGrid.AllowUserToResizeRows = false;
+            this.resultDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.resultDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.resultDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.resultDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.resultDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.resultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.resultDataGrid.Location = new System.Drawing.Point(3, 208);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.resultDataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.resultDataGrid.EnableHeadersVisualStyles = false;
+            this.resultDataGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.resultDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.resultDataGrid.Location = new System.Drawing.Point(10, 193);
             this.resultDataGrid.Name = "resultDataGrid";
-            this.resultDataGrid.Size = new System.Drawing.Size(1044, 215);
-            this.resultDataGrid.TabIndex = 0;
+            this.resultDataGrid.ReadOnly = true;
+            this.resultDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.resultDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.resultDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.resultDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.resultDataGrid.Size = new System.Drawing.Size(1031, 226);
+            this.resultDataGrid.TabIndex = 13;
             // 
             // Form1
             // 
@@ -258,21 +470,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel searchPanel;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox keywordTextbox;
-        private System.Windows.Forms.ComboBox criteriaComboBox;
-        private System.Windows.Forms.DataGridView resultDataGrid;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.GroupBox birdsGroupBox;
-        private System.Windows.Forms.ListBox birdsInCageListBox;
+        private ReaLTaiizor.Controls.MetroButton button6;
+        private ReaLTaiizor.Controls.MetroTextBox keywordTextBox;
+        private ReaLTaiizor.Controls.AirButton airButton1;
+        private ReaLTaiizor.Controls.MetroButton metroButton4;
+        private ReaLTaiizor.Controls.MetroButton metroButton1;
+        private ReaLTaiizor.Controls.MetroButton metroButton3;
+        private ReaLTaiizor.Controls.MetroButton metroButton2;
+        private ReaLTaiizor.Controls.MetroButton editButton;
+        private ReaLTaiizor.Controls.MetroComboBox criteriaComboBox;
+        private ReaLTaiizor.Controls.MetroListBox birdsInCageListBox;
+        private ReaLTaiizor.Controls.PoisonDataGridView resultDataGrid;
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using ParootsManagement.Models;
 using ParootsManagement.Services;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,6 +59,7 @@ namespace ParootsManagement
             birdsGroupBox.Visible = false;
             this.FormClosing += Form1_FormClosing;
             birdsInCageListBox.ItemHeight = 20;
+            resultDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -77,7 +79,7 @@ namespace ParootsManagement
             {
                 try
                 {
-                    selectedRow = resultDataGrid.SelectedRows[0];
+                    selectedRow = rdg.SelectedRows[0];
                 }
                 catch (Exception ec)
                 {
@@ -127,7 +129,7 @@ namespace ParootsManagement
                             var bird = database.Birds.FirstOrDefault(s => s.Id == id);
                             if (bird != null)
                             {
-                                birdsInCageListBox.Items.Add(bird);
+                                birdsInCageListBox.Items.Add(bird.ToString());
 
                             }
 
@@ -216,11 +218,7 @@ namespace ParootsManagement
             InitializeBirdDataGrids();
             InitializeBirdComboBox();
             searchPanel.Show();
-            if (database.Birds.Count == 1)
-            {
-                AddBirdForm frm = new AddBirdForm(database.Birds[0], database);
-                frm.ShowDialog();
-            }
+            editButton.Text = "Show Bird Details";
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -231,13 +229,9 @@ namespace ParootsManagement
             criteriaComboBox.Items.Clear();
             InitializeCageComboBox();
             InitializeCageDataGrids();
-
+            editButton.Text = "Show Cage Details";
             searchPanel.Show();
-            if (database.Cages.Count == 1)
-            {
-                CageForm frm = new CageForm(database.Cages[0], database);
-                frm.ShowDialog();
-            }
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -251,10 +245,21 @@ namespace ParootsManagement
         {
             if (isBirdSearch == true)
             {
+
+                if (database.Birds.Count == 1)
+                {
+                    AddBirdForm frm = new AddBirdForm(database.Birds[0], database);
+                    frm.ShowDialog();
+                }
                 PopulateGridBirds();
             }
             else if (isBirdSearch == false)
             {
+                if (database.Cages.Count == 1)
+                {
+                    CageForm frm = new CageForm(database.Cages[0], database);
+                    frm.ShowDialog();
+                }
                 PopulateGridCages();
             }
             else
@@ -266,7 +271,7 @@ namespace ParootsManagement
         private void PopulateGridCages()
         {
             resultDataGrid.Rows.Clear();
-            var cages = cageSearchService.SearchCage(keywordTextbox.Text, criteriaComboBox.Text);
+            var cages = cageSearchService.SearchCage(keywordTextBox.Text, criteriaComboBox.Text);
             foreach (var cage in cages)
             {
                 resultDataGrid.Rows.Add(cage.Id, cage.Material, cage.Height, cage.Width, cage.Length);
@@ -275,7 +280,7 @@ namespace ParootsManagement
         private void PopulateGridBirds()
         {
             resultDataGrid.Rows.Clear();
-            var birds = birdSearchService.SearchBird(keywordTextbox.Text, criteriaComboBox.Text);
+            var birds = birdSearchService.SearchBird(keywordTextBox.Text, criteriaComboBox.Text);
             foreach (var bird in birds)
             {
                 resultDataGrid.Rows.Add(bird.Id, bird.Specie, bird.BirthDate, bird.Gender);
@@ -307,6 +312,11 @@ namespace ParootsManagement
                 MessageBox.Show("Error: No record selected!");
                 return;
             }
+
+        }
+
+        private void resultDataGrid_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -18,7 +18,7 @@ namespace ParootsManagement.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Species: {Specie}, Subspecies: {SubSpecie}, BirthDate: {BirthDate.ToShortDateString()}\n, Gender: {Gender}, CageNumber: {CageId}, FatherID: {FatherIdentificationNumber}, MotherID: {MotherIdentificationNumber}";
+            return $"Id: {Id}, Species: {Specie}, Subspecies: {SubSpecie}, BirthDate: {BirthDate.ToShortDateString()}, Gender: {Gender}, CageNumber: {CageId}, FatherID: {FatherIdentificationNumber}, MotherID: {MotherIdentificationNumber}";
         }
         public int GenerateBirdId(Database db)
         {
