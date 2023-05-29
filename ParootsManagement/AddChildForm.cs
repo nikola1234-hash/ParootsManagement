@@ -90,9 +90,9 @@ namespace ParootsManagement
             child.HeadColor = BirdColorService.DetermineHeadColor(parent, mother);
             child.BodyColor = BirdColorService.DetermineBodyColor(parent, mother);
             child.BreastColor = BirdColorService.DetermineBreastColor(parent, mother);
-            headCombo.SelectedItem = child.HeadColor;
-            bodyCombo.SelectedItem = child.BodyColor;
-            breastCombo.SelectedItem = child.BreastColor;
+            headCombo.SelectedItem = child.HeadColor.ToString();
+            bodyCombo.SelectedItem = child.BodyColor.ToString();
+            breastCombo.SelectedItem = child.BreastColor.ToString();
         }
 
         private void FatherComboBox_SelectedIndexChanged(object sender, EventArgs e)
